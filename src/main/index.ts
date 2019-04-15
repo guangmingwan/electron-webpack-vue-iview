@@ -1,4 +1,4 @@
 import { app } from 'electron';
-import Main from './Main';
+import Application from './application';
 
-Main.main(app);
+Application.run(app);

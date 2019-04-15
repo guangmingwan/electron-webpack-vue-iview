@@ -10,7 +10,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
  * @see https://github.com/electron/electron/blob/master/docs/api/app.md
  * @see https://github.com/electron/electron/blob/master/docs/api/browser-window.md
  */
-export default class Main {
+export default class Application {
 
   /**
    * Main entry point for the application.
@@ -20,12 +20,12 @@ export default class Main {
    * @param {typeof BrowserWindow} window
    * @memberof Main
    */
-  public static main(application: App): void {
+  public static run(application: App): void {
 
-    Main.application = application;
-    Main.application.on('activate', Main.onActivate);
-    Main.application.on('ready', Main.onReady);
-    Main.application.on('window-all-closed', Main.onWindowAllClosed);
+    Application.application = application;
+    Application.application.on('activate', Application.onActivate);
+    Application.application.on('ready', Application.onReady);
+    Application.application.on('window-all-closed', Application.onWindowAllClosed);
 
   }
 
@@ -54,8 +54,8 @@ export default class Main {
     window.loadURL(target);
 
     // Wire up some events.
-    window.on('closed', Main.onClosed);
-    window.webContents.on('devtools-opened', Main.onDevtoolsOpened);
+    window.on('closed', Application.onClosed);
+    window.webContents.on('devtools-opened', Application.onDevtoolsOpened);
 
     if (isDevelopment) {
       window.webContents.openDevTools();
@@ -77,8 +77,8 @@ export default class Main {
     // tslint:disable-next-line:no-console
     console.log('activate');
 
-    if (Main.window == null) {
-      Main.window = Main.createWindow();
+    if (Application.window == null) {
+      Application.window = Application.createWindow();
     }
 
   }
@@ -95,7 +95,7 @@ export default class Main {
     // tslint:disable-next-line:no-console
     console.log('closed');
 
-    Main.window = null;
+    Application.window = null;
 
   }
 
@@ -112,11 +112,11 @@ export default class Main {
     // tslint:disable-next-line:no-console
     console.log('devtools-opened');
 
-    if (!Main.window) { return; }
+    if (!Application.window) { return; }
 
-    Main.window.focus();
+    Application.window.focus();
     setImmediate(() => {
-      if (Main.window) { Main.window.focus(); }
+      if (Application.window) { Application.window.focus(); }
     });
 
   }
@@ -133,7 +133,7 @@ export default class Main {
     // tslint:disable-next-line:no-console
     console.log('ready');
 
-    Main.window = Main.createWindow();
+    Application.window = Application.createWindow();
 
   }
 
@@ -151,7 +151,7 @@ export default class Main {
 
     // On macOS it is common for applications to stay open until the user explicitly quits.
     if (process.platform !== 'darwin') {
-      Main.application.quit();
+      Application.application.quit();
     }
 
   }
