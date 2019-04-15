@@ -1,16 +1,16 @@
 {
-    "name": "electron-webpack-ts-vue-boilerplate",
-    "version": "0.5.0",
+    "name": "electron-webpack-ts-vue-iview",
+    "version": "0.0.1",
     "license": "MIT",
     "author": {
-        "name": "Patrick Berger",
-        "email": "pb@patrickberger.org",
-        "url": "https://github.com/patrickberger"
+        "name": "guangming wan",
+        "email": "156530445@qq.com",
+        "url": "https://github.com/guangmingwan"
     },
-    "homepage": "https://github.com/patrickberger/electron-webpack-ts-vue-boilerplate",
+    "homepage": "https://github.com/guangmingwan/electron-webpack-vue-iview",
     "repository": {
         "type": "git",
-        "url": "https://github.com/patrickberger/electron-webpack-ts-vue-boilerplate.git"
+        "url": "https://github.com/guangmingwan/electron-webpack-vue-iview"
     },
     "scripts": {
         "clean": "rimraf dist installer",
