@@ -150,9 +150,9 @@ export default class Application {
     console.log('window-all-closed');
 
     // On macOS it is common for applications to stay open until the user explicitly quits.
-    if (process.platform !== 'darwin') {
+    //if (process.platform !== 'darwin') {
       Application.application.quit();
-    }
+    //}
 
   }
 

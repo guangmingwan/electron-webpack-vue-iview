@@ -6,18 +6,19 @@
 
     import Vue from 'vue';
     //import Component from 'vue-class-component';
-
-    export default Vue.extend({
+    import { Component,Prop,Watch } from 'vue-property-decorator';
+    @Component({
+        components: {
+        }
+    })
+    export default class LandingPage extends Vue {
+        title:string = '欢迎来到Vue iview'
         mounted() {
             console.log("mounted!");
+            console.log(this.title);
             this.$Message.info('This is a info tip from view');
-        },
-        data () {
-            return {
-                title: 'Welcome to the electron-webpack-vue-iview.'
-            }
         }
-    });
+    }
 
 </script>
 
